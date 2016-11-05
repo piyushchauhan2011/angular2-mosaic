@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   img: HTMLImageElement;
   mosaic: Mosaic;
 
-  tiles: Array<any>;
+  tiles: Array<Array<Tile>>;
   promises: Array<any>;
 
   ngOnInit() {
@@ -114,7 +114,7 @@ export class AppComponent implements OnInit {
 
   // Render the image on canvas
   imageLoaded() {
-    this.tiles = new Array();
+    this.tiles = new Array<Array<Tile>>();
     this.promises = new Array();
 
     this.canvas.width = this.img.width;
@@ -145,8 +145,8 @@ export class AppComponent implements OnInit {
   fetch(ctx, mosaic, height, width) {
     // Loop over height and width of image as per tile size
     for (let y = 0; y < height; y += TILE_HEIGHT) {
-      let localTiles = new Array();
-      let localPromises = new Array();
+      let localTiles = new Array<Tile>();
+      let localPromises = new Array<Promise<string>>();
       for (let x = 0; x < width; x += TILE_WIDTH) {
         // Blank tiles rendered to reduce the load
         // while making request and only updating the innerHTML
