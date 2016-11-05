@@ -1,3 +1,17 @@
-<h1>
-  {{title}}
-</h1>
+<div id="container" class="container">
+  <div class="row">
+    <div class="eight columns">
+      <form id="mosaicForm">
+        <label for="image">Image to upload:</label>
+        <input type="file" id="image" />
+        <div id="imageDrag"><span id="imageName"></span></div>
+      </form>
+    </div>
+    <div class="four columns">
+      <button id="createMosaic">
+          Create Mosaic
+				</button>
+    </div>
+  </div>
+  <canvas id="canvas"></canvas>
+</div>
